@@ -1,0 +1,27 @@
+# Variables de entorno reales (nunca subir)
+.env
+.env.*
+!.env.example
+
+# Credenciales y claves
+*.pem
+*.key
+secrets/
+credenciales*
+
+# Logs y temporales
+*.log
+logs/
+tmp/
+
+# Editor y sistema operativo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependencias (por si se agregan en el futuro)
+node_modules/
+
+# Comprimidos
+*.zip
