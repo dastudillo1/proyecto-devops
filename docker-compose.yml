@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    image: reserva-horas-web:1.0
+    container_name: ${CONTAINER_NAME:-reserva-horas-web}
+    ports:
+      - "${HOST_PORT:-8080}:80"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
