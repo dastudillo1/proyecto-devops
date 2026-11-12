@@ -68,6 +68,15 @@ docker compose down
 - El contenedor se ejecuta con `no-new-privileges`.
 - Antes de cada commit se revisa con `git status` y `git diff` que no se incluyan archivos sensibles.
 
+### Cómo se evita publicar información sensible
+
+- El archivo `.env` real nunca se versiona: está excluido en `.gitignore`.
+- Solo se publica `.env.example`, que contiene valores de ejemplo y ningún dato real.
+- Todos los datos del sitio y del formulario son ficticios; el formulario no envía ni almacena información.
+- Antes de cada commit se revisa con `git status` y `git diff` que no haya archivos sensibles.
+- Antes de cada pull request se revisa la pestaña *Files changed*.
+- Si una credencial se publicara por error, se debe revocar y reemplazar de inmediato; borrarla del historial no es suficiente.
+
 ## Flujo de trabajo con Git
 
 - `main`: rama estable.
