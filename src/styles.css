@@ -1,0 +1,87 @@
+:root {
+  --verde: #1b7f5c;
+  --verde-oscuro: #125941;
+  --fondo: #f3f8f6;
+  --texto: #1f2d2a;
+  --borde: #cfe2db;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.cabecera {
+  background: var(--verde);
+  color: #fff;
+  text-align: center;
+  padding: 28px 16px;
+}
+.cabecera h1 { margin: 0 0 4px; font-size: 1.8rem; }
+.cabecera p  { margin: 0; opacity: .9; }
+
+.contenedor {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 18px;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 20px;
+}
+.tarjeta h2 { margin-top: 0; color: var(--verde); font-size: 1.25rem; }
+.tarjeta ul { padding-left: 20px; margin: 0; }
+
+.punto {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #2ecc71;
+  margin-right: 4px;
+}
+.nota  { font-size: .85rem; color: #5c6f69; margin-bottom: 0; }
+.aviso { font-size: .9rem; background: #fff8e1; border-left: 4px solid #f5b301; padding: 8px 12px; }
+
+form { display: grid; gap: 8px; }
+label { font-weight: 600; margin-top: 6px; }
+input, select {
+  padding: 10px;
+  border: 1px solid #b9cfc6;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+button {
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--verde);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:hover { background: #146347; }
+
+.mensaje {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #e6f7ee;
+  border-left: 4px solid #2ecc71;
+}
+
+.pie {
+  text-align: center;
+  font-size: .85rem;
+  color: #5c6f69;
+  padding: 20px 16px 30px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserva de Horas Médicas | Clínica Salud Integral</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1>Clínica Salud Integral</h1>
+    <p>Plataforma de reserva de horas médicas</p>
+  </header>
+
+  <main class="contenedor">
+
+    <section class="tarjeta estado" aria-label="Estado del servicio">
+      <h2>Estado del servicio</h2>
+      <p><span class="punto"></span> <strong>Operativo</strong> &middot; Entorno de demostración local (Docker + Nginx)</p>
+      <p class="nota">Versión 1.0 &middot; Última actualización: noviembre 2026</p>
+    </section>
+
+    <section class="tarjeta" aria-label="Datos generales de atención">
+      <h2>Datos generales de atención</h2>
+      <ul>
+        <li><strong>Horario:</strong> lunes a viernes, 08:00 a 19:00 hrs.</li>
+        <li><strong>Sábados:</strong> 09:00 a 13:00 hrs.</li>
+        <li><strong>Especialidades:</strong> medicina general, pediatría, ginecología y kinesiología.</li>
+        <li><strong>Dirección:</strong> Av. Ejemplo 1234, Santiago (dato ficticio).</li>
+        <li><strong>Teléfono:</strong> +56 2 0000 0000 (dato ficticio).</li>
+      </ul>
+    </section>
+
+    <section class="tarjeta" aria-label="Formulario de reserva">
+      <h2>Reserva tu hora</h2>
+      <p class="aviso">Formulario de simulación. No ingreses datos personales reales: la información no se envía ni se almacena en ningún lugar.</p>
+
+      <form id="form-reserva">
+        <label for="nombre">Nombre (ficticio)</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Paciente de Prueba" required>
+
+        <label for="especialidad">Especialidad</label>
+        <select id="especialidad" name="especialidad" required>
+          <option value="">Selecciona una opción</option>
+          <option>Medicina general</option>
+          <option>Pediatría</option>
+          <option>Ginecología</option>
+          <option>Kinesiología</option>
+        </select>
+
+        <label for="fecha">Fecha preferida</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="horario">Horario</label>
+        <select id="horario" name="horario" required>
+          <option value="">Selecciona un horario</option>
+          <option>Mañana (08:00 - 12:00)</option>
+          <option>Tarde (14:00 - 19:00)</option>
+        </select>
+
+        <button type="submit">Reservar hora</button>
+      </form>
+
+      <p id="mensaje" class="mensaje" role="status" hidden></p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Proyecto académico DevOps &middot; IACC 2026 &middot; Sitio estático servido con Nginx en Docker</p>
+  </footer>
+
+  <script>
+    // Simulación: no se envía nada a ningún servidor.
+    document.getElementById("form-reserva").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var msg = document.getElementById("mensaje");
+      msg.textContent = "Solicitud simulada registrada correctamente. (Este formulario no guarda datos.)";
+      msg.hidden = false;
+    });
+  </script>
+</body>
+</html>
