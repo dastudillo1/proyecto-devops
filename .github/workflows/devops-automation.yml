@@ -1,0 +1,49 @@
+name: DevOps Automation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Verificar archivos obligatorios
+        run: |
+          for f in src/index.html src/styles.css Dockerfile docker-compose.yml .gitignore .env.example README.md; do
+            test -f "$f" && echo "OK: $f" || { echo "FALTA: $f"; exit 1; }
+          done
+
+      - name: Verificar que no exista un .env real en el repositorio
+        run: |
+          if git ls-files | grep -E '^\.env$'; then
+            echo "Se encontró un archivo .env versionado"; exit 1
+          fi
+          echo "Sin archivo .env versionado"
+
+      - name: Validar docker-compose.yml
+        run: docker compose config > /dev/null
+
+      - name: Construir imagen
+        run: docker compose build
+
+      - name: Levantar servicio y probarlo
+        run: |
+          docker compose up -d
+          sleep 5
+          curl -fsS http://localhost:8080 | grep -i "Reserva de Horas"
+
+      - name: Mostrar estado y logs
+        if: always()
+        run: |
+          docker compose ps
+          docker compose logs
+
+      - name: Detener servicio
+        if: always()
+        run: docker compose down
